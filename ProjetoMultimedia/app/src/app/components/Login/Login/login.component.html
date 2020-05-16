@@ -1,0 +1,15 @@
+<div class="title-container">
+  <h1>{{ title }}</h1>
+</div>
+<div class="form-container">
+  <app-form-item
+    [icon]="iconEmail"
+    [placeholder]="placeholderEmail"
+  ></app-form-item>
+  <app-form-item-password
+    [icon]="iconPassword"
+    [placeholder]="placeholderPassword"
+    *ngIf="showPassword"
+  ></app-form-item-password>
+  <app-generic-button [displayText]="buttonText"></app-generic-button>
+</div>

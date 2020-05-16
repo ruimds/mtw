@@ -4,11 +4,11 @@ import { Type, TypeScriptEmitter } from "@angular/compiler";
 import { TypeModifier } from "@angular/compiler/src/output/output_ast";
 
 @Component({
-  selector: "app-form-item",
-  templateUrl: "./form-item.component.html",
-  styleUrls: ["./form-item.component.css"],
+  selector: "app-form-item-password",
+  templateUrl: "./form-item-password.component.html",
+  styleUrls: ["./form-item-password.component.css"],
 })
-export class FormItemComponent {
+export class FormItemPasswordComponent {
   @Input() public icon: string;
   @Input() public placeholder: string;
 
