@@ -1,0 +1,28 @@
+.form-item-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.icon {
+  padding: 10px;
+  background: #dedede;
+  color: black;
+  min-width: 3%;
+  text-align: center;
+  border: 1px solid #b3b3b3;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.form-item {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.form-item:focus {
+  border: 2px solid #b3b3b3;
+}
