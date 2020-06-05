@@ -5,7 +5,4 @@ import { Component, OnInit, NgModule, Input } from "@angular/core";
   templateUrl: "./login-psicologo.component.html",
   styleUrls: ["./login-psicologo.component.css"],
 })
-export class LoginPsicologoComponent {
-  title = "Sistema de Registo de Sessões";
-  showPassword = true;
-}
+export class LoginPsicologoComponent {}

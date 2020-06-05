@@ -5,7 +5,4 @@ import { Component, OnInit, NgModule, Input } from "@angular/core";
   templateUrl: "./login-pacientecomponent.html",
   styleUrls: ["./login-paciente.component.css"],
 })
-export class LoginPacienteComponent {
-  title = "Avaliação de Sessão";
-  showPassword = false;
-}
+export class LoginPacienteComponent {}
