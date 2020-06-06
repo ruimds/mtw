@@ -1,5 +1,10 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
+
 
 import { AppComponent } from "./app.component";
 import { LoginPacienteComponent } from "./components/auth/login-paciente/login-paciente/login-paciente.component";
@@ -35,8 +40,12 @@ import { AppRoutingModule } from "./app-routing-module";
     MatIconModule,
     MatToolbarModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

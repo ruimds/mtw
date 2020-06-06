@@ -1,22 +1,17 @@
-<app-header></app-header>
+<app-header [homeurl]="homeurl" [url]="url" [mostrarRegistar]="mostrarRegistar" [logged]="logged"></app-header>
 <div class="title-container">
   <h1>Avaliação de Sessão</h1>
 </div>
-<div class="form-container">
-  <div class="form-item-container">
-    <i class="icon"><mat-icon>email</mat-icon> </i>
-    <input type="text" class="form-item" placeholder="Email..." name="email" />
+<form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+  <div class="form-container">
+    <div class="form-item-container">
+      <i class="icon">
+        <mat-icon>email</mat-icon>
+      </i>
+      <input class="form-item" matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel"
+        required email /> </div>
+    <button class="generic-button" mat-raised-button color="primary" type="submit">
+      Login
+    </button>
   </div>
-  <div class="form-item-container">
-    <i class="icon"><mat-icon>vpn_key</mat-icon> </i>
-    <input
-      type="text"
-      class="form-item"
-      placeholder="Password..."
-      name="password"
-    />
-  </div>
-  <button class="generic-button" mat-raised-button color="primary">
-    Login
-  </button>
-</div>
+</form>

@@ -1,10 +1,14 @@
-<app-header></app-header>
+<app-header
+  [homeurl]="homeurl"
+  [mostrarRegistar]="mostrarRegistar"
+  [logged]="logged"
+></app-header>
 <div class="title-container">
   <h1>Registo Psicologo</h1>
 </div>
 <div class="form-container">
   <div class="form-item-container">
-    <i class="icon"><mat-icon>person-pin</mat-icon> </i>
+    <i class="icon"><mat-icon>person</mat-icon> </i>
     <input
       type="text"
       class="form-item"
@@ -13,35 +17,26 @@
     />
   </div>
   <div class="form-item-container">
-    <i class="icon"><mat-icon>timeline</mat-icon> </i>
-    <input
-      type="number"
-      class="form-item"
-      placeholder="Idade..."
-      name="number"
-    />
-  </div>
-  <div class="form-item-container">
-    <i class="icon"><mat-icon>wc</mat-icon> </i>
+    <i class="icon"><mat-icon>dns</mat-icon> </i>
     <input
       type="text"
       class="form-item"
-      placeholder="Genero..."
-      name="genero"
+      placeholder="Servico..."
+      name="servico"
+    />
+  </div>
+  <div class="form-item-container">
+    <i class="icon"><mat-icon>email</mat-icon> </i>
+    <input
+      type="text"
+      class="form-item"
+      placeholder="Password..."
+      name="password"
     />
   </div>
   <div class="form-item-container">
     <i class="icon"><mat-icon>email</mat-icon> </i>
     <input type="text" class="form-item" placeholder="Email..." name="email" />
-  </div>
-  <div class="form-item-container">
-    <i class="icon"><mat-icon>email</mat-icon> </i>
-    <input
-      type="text"
-      class="form-item"
-      placeholder="Email Psicologo..."
-      name="emailpsicologo"
-    />
   </div>
   <button class="generic-button" mat-raised-button color="primary">
     Registar

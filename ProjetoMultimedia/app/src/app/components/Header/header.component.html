@@ -1,7 +1,21 @@
 <mat-toolbar>
   <div class="md-toolbar-tools">
-    <span><a routerLink="/" class="home-nav-item">Psi-Monitoring</a></span>
+    <span
+      ><a routerLink="/{{ homeurl }}" class="home-nav-item"
+        >Psi-Monitoring</a
+      ></span
+    >
     <span class="fill"></span>
-    <a mat-button style class="nav-item"> Registo </a>
+    <a
+      routerLink="/{{ url }}"
+      *ngIf="mostrarRegistar && !logged"
+      mat-button
+      class="nav-item"
+    >
+      Registo
+    </a>
+    <a routerLink="/" *ngIf="!logged" mat-button style class="nav-item">
+      Inicio
+    </a>
   </div>
 </mat-toolbar>
