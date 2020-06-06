@@ -48,7 +48,7 @@ export class AuthService {
   loginPsicologo(email: string, password: string) {
     const authData: AuthLoginPsicologo = { email: email, password: password };
     this.http
-      .post<{ token: string }>("http://localhost:3000/api/psicologo/login", authData)
+      .post<{ token: string }>("http://127.0.0.1:8080/api/login/psicologos", authData)
       .subscribe(
         (response) => {
           const token = response.token;
@@ -64,7 +64,7 @@ export class AuthService {
   loginPaciente(email: string) {
     const authData: AuthLoginPaciente = { email: email };
     this.http
-      .post<{ token: string }>("http://localhost:3000/api/paciente/login", authData)
+      .post<{ token: string }>("http://127.0.0.1:8080/api/login/pacientes", authData)
       .subscribe(
         (response) => {
           const token = response.token;
