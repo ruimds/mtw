@@ -16,6 +16,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { AppRoutingModule } from "./app-routing-module";
 
+import { orsComponent } from "./components/ORS/ors.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { AppRoutingModule } from "./app-routing-module";
     HomePacienteComponent,
     RegistoPacienteComponent,
     RegistoPsicologoComponent,
+    orsComponent,
   ],
   imports: [
     BrowserModule,
