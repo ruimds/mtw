@@ -1,5 +1,10 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
+
 
 /**
  * Components
@@ -51,8 +56,12 @@ import {MatCardModule} from '@angular/material/card';
     MatSliderModule,
     MatCheckboxModule,
     MatCardModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

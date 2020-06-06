@@ -1,5 +1,7 @@
 const Express = require("express");
 const BodyParser = require("body-parser");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 //?Connection String para a base de dados MongoDB em cloud através do ATLAS
@@ -69,6 +71,42 @@ app.listen(8080, () => {
         }
       }
     });
+    app.post("/api/login/:collection", async function (req, res) {
+      collection = database.collection(req.params.collection);
+
+      let options = parseHeaderOptionsLogin(req);
+      let user;
+
+      if (options === "Bad Body") {
+        return res.status(400).send(options);
+      }
+      else {
+        switch (req.params.collection) {
+          case 'psicologos': user = await collection.findOne({ email: options.email, password: options.password });
+            break;
+          case 'pacientes': user = await collection.findOne({ email: options.email });
+            break;
+        }
+
+        // checkPass = bcrypt.compare(options.password)
+        if (user !== null) {
+          const token = jwt.sign(
+            { email: user.email, userId: user._id },
+            "secret",
+            { expiresIn: "1h" }
+          );
+          //envia token ao user
+          res.status(200).json({
+            token: token,
+          });
+        }
+        else {
+          return res.status(401).json({
+            message: "Auth failed",
+          });
+        }
+      }
+    });
     //?EndPoint que permite apagar um paciente ou um psicólogo
     app.delete("/api/:collection", async function (req, res) {
       collection = database.collection(req.params.collection);
@@ -91,6 +129,19 @@ app.listen(8080, () => {
       }
     });
   });
+});
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+  );
+  next();
 });
 
 //*GET/POST/DELETE http://127.0.0.1:8080/api/pacientes
@@ -133,6 +184,32 @@ function parseHeaderOptionsDelete(req) {
   return options;
 }
 //?Função que permite dar parse dos headers utilizados no endpoint POST
+function parseHeaderOptionsLogin(req) {
+  let options = {};
+
+  if (req.params.collection == "psicologos") {
+
+    if (req.body.password !== undefined && typeof req.body.password == "string") {
+      options.password = req.body.password;
+    } else {
+      return "Bad Body!";
+    }
+
+    if (req.body.email !== undefined && typeof req.body.email == "string") {
+      options.email = req.body.email;
+    } else {
+      return "Bad Body!";
+    }
+  }
+  else if (req.params.collection == "pacientes") {
+    if (req.body.email !== undefined && typeof req.body.email == "string") {
+      options.email = req.body.email;
+    } else {
+      return "Bad Body!";
+    }
+  }
+  return options;
+}
 function parseHeaderOptionsInsert(req) {
   let options = {};
 
@@ -192,3 +269,4 @@ function parseHeaderOptionsInsert(req) {
 function isEmpty(obj) {
   return !Object.keys(obj).length > 0;
 }
+

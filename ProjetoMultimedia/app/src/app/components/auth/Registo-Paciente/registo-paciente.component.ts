@@ -5,4 +5,8 @@ import { Component, OnInit, NgModule, Input } from "@angular/core";
   templateUrl: "./registo-paciente.component.html",
   styleUrls: ["./registo-paciente.component.css"],
 })
-export class RegistoPacienteComponent {}
+export class RegistoPacienteComponent {
+  mostrarRegistar = false;
+  logged = false;
+  homeurl = "/";
+}

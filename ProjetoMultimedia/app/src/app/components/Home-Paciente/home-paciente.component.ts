@@ -5,4 +5,7 @@ import { Component, OnInit, NgModule, Input } from "@angular/core";
   templateUrl: "./home-paciente.component.html",
   styleUrls: ["./home-paciente.component.css"],
 })
-export class HomePacienteComponent {}
+export class HomePacienteComponent {
+  logged = "true";
+  homeurl = "/paciente";
+}
