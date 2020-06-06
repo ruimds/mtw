@@ -6,6 +6,7 @@ import { LoginPsicologoComponent } from "./components/auth/login-psicologo/login
 import { HomeComponent } from "./components/Home/home.component";
 import { HomePacienteComponent } from "./components/Home-Paciente/home-paciente.component";
 import { HomePsicologoComponent } from "./components/Home-Psicologo/home-psicologo.component";
+import { orsComponent } from "./components/ORS/ors.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: "loginPsicologo", component: LoginPsicologoComponent },
   { path: "registoPaciente", component: LoginPsicologoComponent },
   { path: "registoPsicologo", component: LoginPsicologoComponent },
+  { path: "ors", component: orsComponent},
 ];
 
 @NgModule({
