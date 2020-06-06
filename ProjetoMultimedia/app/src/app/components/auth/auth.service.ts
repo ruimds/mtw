@@ -16,19 +16,19 @@ export class AuthService {
   getToken() {
     return this.token;
   }
-  registarPsicologo(email: string, servico: string, genero: string, password: string) {
+  registarPsicologo(email: string, nome: string, servico: string, password: string) {
     const authData: AuthRegistarPsicologo = {
       email: email,
+      nome: nome,
       servico: servico,
-      genero: genero,
       password: password
     };
     this.http
-      .post("http://localhost:3000/api/", authData)
+      .post("http://127.0.0.1:8080/api/psicologos", authData)
       .subscribe((response) => {
         console.log("response login", response);
       });
-    this.router.navigate(["/login"]);
+    this.router.navigate(["/loginPsicologo"]);
   }
   registarPaciente(nome: string, idade: number, genero: string, email: string, emailpsicologo: string) {
     const authData: AuthRegistarPaciente = {
@@ -39,11 +39,11 @@ export class AuthService {
       emailpsicologo: emailpsicologo
     };
     this.http
-      .post("http://localhost:3000/api/", authData)
+      .post("http://127.0.0.1:8080/api/pacientes", authData)
       .subscribe((response) => {
         console.log("response login", response);
       });
-    this.router.navigate(["/login"]);
+    this.router.navigate(["/loginPaciente"]);
   }
   loginPsicologo(email: string, password: string) {
     const authData: AuthLoginPsicologo = { email: email, password: password };

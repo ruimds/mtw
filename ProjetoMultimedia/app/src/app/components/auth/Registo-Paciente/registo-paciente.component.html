@@ -1,53 +1,46 @@
-<app-header
-  [homeurl]="homeurl"
-  [mostrarRegistar]="mostrarRegistar"
-  [logged]="logged"
-></app-header>
+<app-header [homeurl]="homeurl" [mostrarRegistar]="mostrarRegistar" [logged]="logged"></app-header>
 <div class="title-container">
   <h1>Registo Paciente</h1>
 </div>
-<div class="form-container">
-  <div class="form-item-container">
-    <i class="icon"><mat-icon>person</mat-icon></i>
-    <input
-      type="text"
-      class="form-item"
-      placeholder="Primeiro e último Nome..."
-      name="name"
-    />
+<form (submit)="onRegister(registerForm)" #registerForm="ngForm">
+  <div class="form-container">
+    <div class="form-item-container">
+      <i class="icon">
+        <mat-icon>person</mat-icon>
+      </i>
+      <input class="form-item" matInput name="nome" ngModel type="text" placeholder="Primeiro e Ultimo nome..."
+        #nomeInput="ngModel" required nome />
+    </div>
+    <div class="form-item-container">
+      <i class="icon">
+        <mat-icon>timeline</mat-icon>
+      </i>
+      <input class="form-item" matInput name="idade" ngModel type="number" placeholder="Idade..." #idadeInput="ngModel"
+        required nome />
+    </div>
+    <div class="form-item-container">
+      <i class="icon">
+        <mat-icon>wc</mat-icon>
+      </i>
+      <input class="form-item" matInput name="genero" ngModel type="text" placeholder="Genero..." #generoInput="ngModel"
+        required servico />
+    </div>
+    <div class="form-item-container">
+      <i class="icon">
+        <mat-icon>email</mat-icon>
+      </i>
+      <input class="form-item" matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel"
+        required email />
+    </div>
+    <div class="form-item-container">
+      <i class="icon">
+        <mat-icon>email</mat-icon>
+      </i>
+      <input class="form-item" type="email" name="emailpsicologo" ngModel matInput placeholder="Email Psicologo..."
+        #emailpsicologoInput="ngModel" required />
+    </div>
+    <button class="generic-button" mat-raised-button color="primary" type="submit">
+      Registar
+    </button>
   </div>
-  <div class="form-item-container">
-    <i class="icon"><mat-icon>timeline</mat-icon> </i>
-    <input
-      type="number"
-      class="form-item"
-      placeholder="Idade..."
-      name="number"
-    />
-  </div>
-  <div class="form-item-container">
-    <i class="icon"><mat-icon>wc</mat-icon> </i>
-    <input
-      type="text"
-      class="form-item"
-      placeholder="Genero..."
-      name="genero"
-    />
-  </div>
-  <div class="form-item-container">
-    <i class="icon"><mat-icon>email</mat-icon> </i>
-    <input type="text" class="form-item" placeholder="Email..." name="email" />
-  </div>
-  <div class="form-item-container">
-    <i class="icon"><mat-icon>email</mat-icon> </i>
-    <input
-      type="text"
-      class="form-item"
-      placeholder="Email Psicologo..."
-      name="emailpsicologo"
-    />
-  </div>
-  <button class="generic-button" mat-raised-button color="primary">
-    Registar
-  </button>
-</div>
+</form>

@@ -8,7 +8,7 @@ export interface AuthLoginPaciente {
 export interface AuthRegistarPsicologo {
   email: string;
   servico: string;
-  genero: string;
+  nome: string;
   password: string;
 }
 export interface AuthRegistarPaciente {
