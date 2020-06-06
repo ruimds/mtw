@@ -8,6 +8,7 @@ import { RegistoPsicologoComponent } from "./components/auth/Registo-Psicologo/r
 import { HomeComponent } from "./components/Home/home.component";
 import { HomePacienteComponent } from "./components/Home-Paciente/home-paciente.component";
 import { HomePsicologoComponent } from "./components/Home-Psicologo/home-psicologo.component";
+import { orsComponent } from "./components/ORS/ors.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -15,6 +16,9 @@ const routes: Routes = [
   { path: "psicologo", component: HomePsicologoComponent },
   { path: "loginPaciente", component: LoginPacienteComponent },
   { path: "loginPsicologo", component: LoginPsicologoComponent },
+  { path: "registoPaciente", component: LoginPsicologoComponent },
+  { path: "registoPsicologo", component: LoginPsicologoComponent },
+  { path: "ors", component: orsComponent},
   { path: "registoPaciente", component: RegistoPacienteComponent },
   { path: "registoPsicologo", component: RegistoPsicologoComponent },
 ];
