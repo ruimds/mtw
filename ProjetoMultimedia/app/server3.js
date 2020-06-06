@@ -62,15 +62,23 @@ app.listen(8080, () => {
         if (exists == null) {
           await collection.insertOne(options, (error, result) => {
             if (error) {
-              return res.status(500).send(error);
+              res.status(500).json({
+                error: err,
+              });
             }
-            res.send("Pessoa inserida na base de dados");
+            else {
+              res.status(201).json({
+                message: "User created!",
+                result: result,
+              });
+            }
           });
         } else {
           return res.send("Pessoa já existe");
         }
       }
     });
+    //?EndPoint que permite fazer um login para um paciente ou um psicólogo
     app.post("/api/login/:collection", async function (req, res) {
       collection = database.collection(req.params.collection);
 
