@@ -61,7 +61,7 @@ app.listen(8080, () => {
         });
       }
     });
-    //?EndPoint que permite inserir um paciente ou um psicólogo
+    //Cria uma collection
     app.post("/api/:collection", checkAuth, async function (req, res) {
       collection = database.collection(req.params.collection);
 
@@ -91,7 +91,7 @@ app.listen(8080, () => {
         }
       }
     });
-    //?EndPoint que permite fazer um login para um paciente ou um psicólogo
+    //Login dos pacientes e dos Psicólogos
     app.post("/api/login/:collection", async function (req, res) {
       collection = database.collection(req.params.collection);
 
@@ -128,7 +128,7 @@ app.listen(8080, () => {
         }
       }
     });
-    //?EndPoint que permite apagar um paciente ou um psicólogo
+    //Apaga uma collection
     app.delete("/api/:collection", checkAuth, async function (req, res) {
       collection = database.collection(req.params.collection);
 
@@ -148,6 +148,28 @@ app.listen(8080, () => {
           return res.status(404).send("Não Encontrado");
         }
       }
+    });
+
+    app.post("/api/paciente/questionario/:collection", checkAuth, async function(req, res) {
+      collection = database.collection(req.params.collection);
+       let user = jwt.decode(req.headers.authorization.split(" ")[1], 'secret');
+
+          req.body.email = user.email;
+          req.body.date = new Date();
+          console.log(req.body);
+          console.log(user);
+          await collection.insertOne(req.body, (error, result) => {
+            if (error) {
+              res.status(500).json({
+                error: error,
+              });
+            } else {
+              res.status(201).json({
+                message: "Poll finished",
+                result: result,
+              });
+            }
+    });
     });
   });
 });
@@ -237,8 +259,8 @@ function parseHeaderOptionsInsert(req) {
       return "Bad Body!";
     }
   } else if (req.params.collection == "pacientes") {
-    if (req.body.genero !== undefined && typeof req.body.genero == "string") {
-      options.genero = req.body.genero;
+      if (req.body.genero !== undefined && typeof req.body.genero == "string") {
+        options.genero = req.body.genero;
     } else {
       return "Bad Body!";
     }
@@ -277,4 +299,3 @@ function parseHeaderOptionsInsert(req) {
 function isEmpty(obj) {
   return !Object.keys(obj).length > 0;
 }
-
