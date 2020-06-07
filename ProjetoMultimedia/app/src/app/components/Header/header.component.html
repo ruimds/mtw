@@ -1,21 +1,33 @@
 <mat-toolbar>
   <div class="md-toolbar-tools">
-    <span
-      ><a routerLink="/{{ homeurl }}" class="home-nav-item"
-        >Psi-Monitoring</a
-      ></span
-    >
+    <span><a routerLink="/{{ homeurl }}" class="home-nav-item">Psi-Monitoring</a></span>
     <span class="fill"></span>
-    <a
-      routerLink="/{{ url }}"
-      *ngIf="mostrarRegistar && !logged"
-      mat-button
-      class="nav-item"
-    >
+    <a routerLink="/{{ url }}" *ngIf="mostrarRegistar && !logged" mat-button class="nav-item">
       Registo
     </a>
-    <a routerLink="/" *ngIf="!logged" mat-button style class="nav-item">
-      Inicio
+    <a routerLink="/ors" *ngIf="logged" mat-button style class="nav-item">
+      ORS
+    </a>
+    <a routerLink="/srs" *ngIf="logged" mat-button style class="nav-item">
+      SRS
+    </a>
+    <a routerLink="/et" *ngIf="logged" mat-button style class="nav-item">
+      ET
+    </a>
+    <a routerLink="/oq10" *ngIf="logged" mat-button style class="nav-item">
+      OQ-10
+    </a>
+    <a routerLink="/qap" *ngIf="logged" mat-button style class="nav-item">
+      QAP
+    </a>
+    <a routerLink="/st" *ngIf="logged" mat-button style class="nav-item">
+      ST
+    </a>
+    <a routerLink="/wai" *ngIf="logged" mat-button style class="nav-item">
+      WAI
+    </a>
+    <a routerLink="#" *ngIf="logged" mat-button style class="nav-item">
+      Sair
     </a>
   </div>
 </mat-toolbar>
