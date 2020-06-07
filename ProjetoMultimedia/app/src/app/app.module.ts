@@ -18,6 +18,7 @@ import { HomeComponent } from "./components/Home/home.component";
 import { HomePsicologoComponent } from "./components/Home-Psicologo/home-psicologo.component";
 import { HomePacienteComponent } from "./components/Home-Paciente/home-paciente.component";
 import { orsComponent } from "./components/ORS/ors.component";
+import { srsComponent } from "./components/srs/srs-component";
 
  /**
   * Modules
@@ -45,6 +46,7 @@ import {MatCardModule} from '@angular/material/card';
     RegistoPacienteComponent,
     RegistoPsicologoComponent,
     orsComponent,
+    srsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,7 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,
     MatSliderModule,
     MatCheckboxModule,
-    MatCardModule
+    MatCardModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,

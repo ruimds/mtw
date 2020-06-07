@@ -9,7 +9,7 @@ import { HomeComponent } from "./components/Home/home.component";
 import { HomePacienteComponent } from "./components/Home-Paciente/home-paciente.component";
 import { HomePsicologoComponent } from "./components/Home-Psicologo/home-psicologo.component";
 import { orsComponent } from "./components/ORS/ors.component";
-
+import { srsComponent } from "./components/srs/srs-component";
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "paciente", component: HomePacienteComponent },
@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: "ors", component: orsComponent},
   { path: "registoPaciente", component: RegistoPacienteComponent },
   { path: "registoPsicologo", component: RegistoPsicologoComponent },
+  { path: "srs", component: srsComponent},
 ];
 
 @NgModule({
