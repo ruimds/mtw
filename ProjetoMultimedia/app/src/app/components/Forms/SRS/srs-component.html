@@ -1,0 +1,34 @@
+<app-header [homeurl]="homeurl" [logged]="logged"></app-header>
+<div class="container">
+    <h1>Escala de avaliação de sessão (SRS)</h1>
+    <mat-card class="description">
+        Por favor, avalie a sessão de hoje, colocando uma marca na linha mais
+        próxima com a descrição que melhor se adapta à sua experiência.
+    </mat-card>
+    <h3>Relação</h3>
+    <mat-slider class="slider" min="0" max="800" step="0.5" value="1.5"></mat-slider>
+    <div class="answer-container">
+        <p class="answer">Eu não me senti escutado, compreendido e respeitado</p>
+        <p class="answer">Sentime escutado, compreendido e respeitado</p>
+    </div>
+    <h3>Objetivos e Tópicos/Temas</h3>
+    <mat-slider class="slider" min="0" max="800" step="0.5" value="1.5"></mat-slider>
+    <div class="answer-container">
+        <p class="answer">Eu não me senti escutado, compreendido e respeitado</p>
+        <p class="answer">Sentime escutado, compreendido e respeitado</p>
+    </div>
+    <h3>Abordagem ou Método</h3>
+    <mat-slider class="slider" min="0" max="800" step="0.5" value="1.5"></mat-slider>
+    <div class="answer-container">
+        <p class="answer">Nós não trabalhámos ou falámos sobre o que eu queria trablhar e falar</p>
+        <p class="answer">Nós trabalhámos ou falámos sobre o que eu queria trablhar e falar</p>
+    </div>
+    <h3>No geral</h3>
+    <mat-slider class="slider" min="0" max="800" step="0.5" value="1.5"></mat-slider>
+    <div class="answer-container">
+        <p class="answer">A abordagem do terapeuta não é adequada para mim</p>
+        <p class="answer">A abordagem do terapeuta é adequada para mim</p>
+    </div>
+
+    <button>Submeter</button>
+</div>

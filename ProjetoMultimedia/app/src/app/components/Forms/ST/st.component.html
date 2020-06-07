@@ -1,0 +1,46 @@
+<app-header [homeurl]="homeurl" [logged]="logged"></app-header>
+<div class="container">
+    <h1>Questionário ST</h1>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nunca</th>
+                <th>Raramente</th>
+                <th>Às vezes</th>
+                <th>Frequentemente</th>
+                <th>Quase sempre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table">
+                <td class="table" style="text-align: left;">Considera que o processos terapeutico está a ajudar-lo a
+                    lidar eficazmente com as suas dificuldades</td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="1">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="2">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="3">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="4">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="5">
+                    </mat-radio-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button>Submeter</button>
+
+</div>

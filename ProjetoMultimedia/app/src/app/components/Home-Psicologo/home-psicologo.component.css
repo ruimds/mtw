@@ -1,0 +1,9 @@
+.title-container {
+  text-align: center;
+  padding: 150px;
+}
+
+.title-container h1 {
+  font-size: 35px;
+  color: black;
+}

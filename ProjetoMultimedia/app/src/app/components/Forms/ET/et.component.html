@@ -1,0 +1,72 @@
+<app-header [homeurl]="homeurl" [logged]="logged"></app-header>
+<div class="container">
+    <h1>Questionário ET</h1>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Será muito fácil para mim</th>
+                <th>Será moderadamente fácil para mim</th>
+                <th>Será um pouco difícil</th>
+                <th>Será bastante difícil</th>
+                <th>Será impossível</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table">
+                <td class="table" style="text-align: left;">De que forma será difícil para si participar na
+                    psicoterapia?</td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="1">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="2">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="3">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="4">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="5">
+                    </mat-radio-button>
+                </td>
+            </tr>
+            <tr class="table">
+                <td class="table" style="text-align: left;">De que forma está confiante, que a psicoterapia irá
+                    ajudar-lo a lidar eficazmene com
+                    os seus
+                    problemas?</td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="1">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="2">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="3">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="4">
+                    </mat-radio-button>
+                </td>
+                <td class="table">
+                    <mat-radio-button class="radio-button" [value]="5">
+                    </mat-radio-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button>Submeter</button>
+
+</div>

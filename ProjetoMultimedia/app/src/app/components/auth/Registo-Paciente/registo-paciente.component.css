@@ -1,0 +1,45 @@
+.title-container {
+  text-align: center;
+  padding: 150px;
+}
+
+.title-container h1 {
+  font-size: 50px;
+  color: orangered;
+}
+
+.form-container {
+  padding: 0 25%;
+}
+.generic-button {
+  width: 100%;
+  background-color: rgb(0, 183, 255);
+}
+.form-item-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.icon {
+  padding: 10px;
+  background: #dedede;
+  color: black;
+  min-width: 3%;
+  text-align: center;
+  border: 1px solid #b3b3b3;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.form-item {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.form-item:focus {
+  border: 2px solid #b3b3b3;
+}
