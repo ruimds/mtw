@@ -4,6 +4,9 @@
     align-items: center;
 }
 
+.description {
+    width: 800px;
+}
 .slider {
     width: 800px;
 }
@@ -16,4 +19,8 @@
 
 .answer {
     width: 150px;
+}
+
+button {
+    width: 800px;
 }
