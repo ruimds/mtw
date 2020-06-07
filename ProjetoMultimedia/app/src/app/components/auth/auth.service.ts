@@ -5,17 +5,15 @@ import { AuthLoginPsicologo } from "./auth-data.model";
 import { AuthLoginPaciente } from "./auth-data.model";
 import { AuthRegistarPsicologo } from "./auth-data.model";
 import { AuthRegistarPaciente } from "./auth-data.model";
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
   private token: string;
   errorAuth;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, public jwtHelper: JwtHelperService) { }
 
-  getToken() {
-    return this.token;
-  }
   registarPsicologo(email: string, nome: string, servico: string, password: string) {
     const authData: AuthRegistarPsicologo = {
       email: email,
@@ -30,6 +28,7 @@ export class AuthService {
       });
     this.router.navigate(["/loginPsicologo"]);
   }
+
   registarPaciente(nome: string, idade: number, genero: string, email: string, emailpsicologo: string) {
     const authData: AuthRegistarPaciente = {
       nome: nome,
@@ -45,14 +44,14 @@ export class AuthService {
       });
     this.router.navigate(["/loginPaciente"]);
   }
+
   loginPsicologo(email: string, password: string) {
     const authData: AuthLoginPsicologo = { email: email, password: password };
     this.http
       .post<{ token: string }>("http://127.0.0.1:8080/api/login/psicologos", authData)
       .subscribe(
         (response) => {
-          const token = response.token;
-          this.token = token;
+          sessionStorage.setItem('token', response.token);
         },
         (error) => {
           console.log(error);
@@ -61,14 +60,14 @@ export class AuthService {
       );
     this.router.navigate(["/psicologo"]);
   }
+
   loginPaciente(email: string) {
     const authData: AuthLoginPaciente = { email: email };
     this.http
       .post<{ token: string }>("http://127.0.0.1:8080/api/login/pacientes", authData)
       .subscribe(
         (response) => {
-          const token = response.token;
-          this.token = token;
+          sessionStorage.setItem('token', response.token);
         },
         (error) => {
           console.log(error);
@@ -76,5 +75,16 @@ export class AuthService {
         }
       );
     this.router.navigate(["/paciente"]);
+  }
+
+  public isAuthenticated(): boolean {
+    const token = sessionStorage.getItem('token');
+    // Check whether the token is expired and return
+    // true or false
+<<<<<<< HEAD
+=======
+    console.log(token);
+>>>>>>> 74eaa0917f0812d95fe1d0de0bfc890da6613e95
+    return !this.jwtHelper.isTokenExpired(token);
   }
 }

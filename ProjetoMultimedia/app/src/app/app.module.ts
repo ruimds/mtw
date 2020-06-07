@@ -36,9 +36,13 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { AppRoutingModule } from "./app-routing-module";
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatCardModule } from '@angular/material/card';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import { AuthInterceptor } from "./components/auth/auth-interceptor";
+import {AuthGuardService} from './components/auth/auth-guard.service';
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,7 @@ import { MatCardModule } from '@angular/material/card';
     OQ10Component,
     QAPComponent,
     STComponent,
-    WAIComponent
+    WAIComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,9 +77,15 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
-    MatRadioModule
+    MatRadioModule,
+    JwtModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    AuthGuardService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
