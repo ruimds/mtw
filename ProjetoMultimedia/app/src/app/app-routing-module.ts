@@ -10,6 +10,11 @@ import { HomePacienteComponent } from "./components/Home-Paciente/home-paciente.
 import { HomePsicologoComponent } from "./components/Home-Psicologo/home-psicologo.component";
 import { orsComponent } from "./components/ORS/ors.component";
 import { srsComponent } from "./components/srs/srs-component";
+import { oq45Component } from "./components/OQ45/oq45-component";
+import { 
+  AuthGuardService as AuthGuard 
+} from './components/auth/auth-guard.service';
+
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "paciente", component: HomePacienteComponent },
@@ -18,10 +23,11 @@ const routes: Routes = [
   { path: "loginPsicologo", component: LoginPsicologoComponent },
   { path: "registoPaciente", component: LoginPsicologoComponent },
   { path: "registoPsicologo", component: LoginPsicologoComponent },
-  { path: "ors", component: orsComponent},
+  { path: "ors", component: orsComponent, canActivate: [AuthGuard]},
   { path: "registoPaciente", component: RegistoPacienteComponent },
   { path: "registoPsicologo", component: RegistoPsicologoComponent },
   { path: "srs", component: srsComponent},
+  { path: "oq45", component: oq45Component},
 ];
 
 @NgModule({

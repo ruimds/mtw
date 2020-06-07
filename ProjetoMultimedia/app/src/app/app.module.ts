@@ -19,6 +19,7 @@ import { HomePsicologoComponent } from "./components/Home-Psicologo/home-psicolo
 import { HomePacienteComponent } from "./components/Home-Paciente/home-paciente.component";
 import { orsComponent } from "./components/ORS/ors.component";
 import { srsComponent } from "./components/srs/srs-component";
+import { oq45Component } from "./components/OQ45/oq45-component";
 
  /**
   * Modules
@@ -32,7 +33,11 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { AppRoutingModule } from "./app-routing-module";
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatTableModule} from '@angular/material/table';
+import { AuthInterceptor } from "./components/auth/auth-interceptor";
+import {AuthGuardService} from './components/auth/auth-guard.service';
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,8 @@ import {MatCardModule} from '@angular/material/card';
     RegistoPacienteComponent,
     RegistoPsicologoComponent,
     orsComponent,
-    srsComponent
+    srsComponent,
+    oq45Component,
   ],
   imports: [
     BrowserModule,
@@ -61,9 +67,16 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    JwtModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    AuthGuardService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
