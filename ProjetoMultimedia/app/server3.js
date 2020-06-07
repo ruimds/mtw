@@ -1,6 +1,5 @@
 const Express = require("express");
 const BodyParser = require("body-parser");
-const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
@@ -11,6 +10,18 @@ const url =
 var app = Express();
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+  );
+  next();
+});
 var database, collection;
 
 app.listen(8080, () => {
@@ -21,9 +32,11 @@ app.listen(8080, () => {
     //?Base de dados MTW no mongoDBs
     database = client.db("MTW");
 
+    const checkAuth = require("./backend/middleware/check-auth");
+
     //?Endpoints relacionados com as collections Paciente e Psicólogo
     //?EndPoint que recebe:  todos os pacientes ou psicologos // filtrados por email, id, nome, password
-    app.get("/api/:collection", async function (req, res) {
+    app.get("/api/:collection", checkAuth, async function (req, res) {
       collection = database.collection(req.params.collection);
 
       let options = parseHeaderOptions(req);
@@ -49,7 +62,7 @@ app.listen(8080, () => {
       }
     });
     //?EndPoint que permite inserir um paciente ou um psicólogo
-    app.post("/api/:collection", async function (req, res) {
+    app.post("/api/:collection", checkAuth, async function (req, res) {
       collection = database.collection(req.params.collection);
 
       let options = parseHeaderOptionsInsert(req);
@@ -116,7 +129,7 @@ app.listen(8080, () => {
       }
     });
     //?EndPoint que permite apagar um paciente ou um psicólogo
-    app.delete("/api/:collection", async function (req, res) {
+    app.delete("/api/:collection", checkAuth, async function (req, res) {
       collection = database.collection(req.params.collection);
 
       let options = parseHeaderOptionsDelete(req);
@@ -137,19 +150,6 @@ app.listen(8080, () => {
       }
     });
   });
-});
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
-  );
-  next();
 });
 
 //*GET/POST/DELETE http://127.0.0.1:8080/api/pacientes
