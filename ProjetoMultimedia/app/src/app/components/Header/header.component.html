@@ -26,7 +26,7 @@
     <a routerLink="/wai" *ngIf="logged" mat-button style class="nav-item">
       WAI
     </a>
-    <a routerLink="#" *ngIf="logged" mat-button style class="nav-item">
+    <a routerLink="#" (click)="logout()" *ngIf="logged" mat-button style class="nav-item">
       Sair
     </a>
   </div>

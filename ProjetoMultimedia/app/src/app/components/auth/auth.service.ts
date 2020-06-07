@@ -28,7 +28,6 @@ export class AuthService {
       });
     this.router.navigate(["/loginPsicologo"]);
   }
-
   registarPaciente(nome: string, idade: number, genero: string, email: string, emailpsicologo: string) {
     const authData: AuthRegistarPaciente = {
       nome: nome,
@@ -44,7 +43,6 @@ export class AuthService {
       });
     this.router.navigate(["/loginPaciente"]);
   }
-
   loginPsicologo(email: string, password: string) {
     const authData: AuthLoginPsicologo = { email: email, password: password };
     this.http
@@ -52,15 +50,14 @@ export class AuthService {
       .subscribe(
         (response) => {
           sessionStorage.setItem('token', response.token);
+          this.router.navigate(["/psicologo"]);
         },
         (error) => {
           console.log(error);
           return (this.errorAuth = error);
         }
       );
-    this.router.navigate(["/psicologo"]);
   }
-
   loginPaciente(email: string) {
     const authData: AuthLoginPaciente = { email: email };
     this.http
@@ -68,13 +65,13 @@ export class AuthService {
       .subscribe(
         (response) => {
           sessionStorage.setItem('token', response.token);
+          this.router.navigate(["/paciente"]);
         },
         (error) => {
           console.log(error);
           return (this.errorAuth = error);
         }
       );
-    this.router.navigate(["/paciente"]);
   }
 
   public isAuthenticated(): boolean {
