@@ -18,7 +18,6 @@ import { RegistoPsicologoComponent } from "./components/auth/Registo-Psicologo/r
 import { HomeComponent } from "./components/Home/home.component";
 import { HomePsicologoComponent } from "./components/Home-Psicologo/home-psicologo.component";
 import { HomePacienteComponent } from "./components/Home-Paciente/home-paciente.component";
-<<<<<<< HEAD
 import { orsComponent } from "./components/Forms/ORS/ors.component";
 import { srsComponent } from "./components/Forms/SRS/srs-component";
 import { ETComponent } from "./components/Forms/ET/et.component";
@@ -26,11 +25,6 @@ import { OQ10Component } from "./components/Forms/OQ-10/oq10.component";
 import { QAPComponent } from "./components/Forms/QAP/qap.component";
 import { STComponent } from "./components/Forms/ST/st.component";
 import { WAIComponent } from "./components/Forms/WAI/wai.component";
-=======
-import { orsComponent } from "./components/ORS/ors.component";
-import { srsComponent } from "./components/srs/srs-component";
-import { oq45Component } from "./components/OQ45/oq45-component";
->>>>>>> Add jwt middleware to api routes and verification for the views
 
 /**
  * Modules
@@ -42,11 +36,6 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { AppRoutingModule } from "./app-routing-module";
-<<<<<<< HEAD
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatCardModule } from '@angular/material/card';
-
-=======
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
@@ -54,7 +43,6 @@ import { AuthInterceptor } from "./components/auth/auth-interceptor";
 import {AuthGuardService} from './components/auth/auth-guard.service';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
->>>>>>> Add jwt middleware to api routes and verification for the views
 
 @NgModule({
   declarations: [
@@ -69,15 +57,11 @@ import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     RegistoPsicologoComponent,
     orsComponent,
     srsComponent,
-<<<<<<< HEAD
     ETComponent,
     OQ10Component,
     QAPComponent,
     STComponent,
-    WAIComponent
-=======
-    oq45Component,
->>>>>>> Add jwt middleware to api routes and verification for the views
+    WAIComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,10 +77,7 @@ import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
-<<<<<<< HEAD
-    MatRadioModule
-=======
-    MatTableModule,
+    MatRadioModule,
     JwtModule
   ],
   providers: [
@@ -104,7 +85,6 @@ import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     AuthGuardService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
->>>>>>> Add jwt middleware to api routes and verification for the views
   ],
   bootstrap: [AppComponent],
 })

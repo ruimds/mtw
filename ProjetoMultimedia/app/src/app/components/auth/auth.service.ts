@@ -81,7 +81,6 @@ export class AuthService {
     const token = sessionStorage.getItem('token');
     // Check whether the token is expired and return
     // true or false
-    console.log(token);
     return !this.jwtHelper.isTokenExpired(token);
   }
 }
