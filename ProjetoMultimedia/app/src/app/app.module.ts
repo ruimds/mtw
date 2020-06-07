@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
+import { MatRadioModule } from '@angular/material/radio';
 
 
 /**
@@ -17,21 +18,26 @@ import { RegistoPsicologoComponent } from "./components/auth/Registo-Psicologo/r
 import { HomeComponent } from "./components/Home/home.component";
 import { HomePsicologoComponent } from "./components/Home-Psicologo/home-psicologo.component";
 import { HomePacienteComponent } from "./components/Home-Paciente/home-paciente.component";
-import { orsComponent } from "./components/ORS/ors.component";
-import { srsComponent } from "./components/srs/srs-component";
+import { orsComponent } from "./components/Forms/ORS/ors.component";
+import { srsComponent } from "./components/Forms/SRS/srs-component";
+import { ETComponent } from "./components/Forms/ET/et.component";
+import { OQ10Component } from "./components/Forms/OQ-10/oq10.component";
+import { QAPComponent } from "./components/Forms/QAP/qap.component";
+import { STComponent } from "./components/Forms/ST/st.component";
+import { WAIComponent } from "./components/Forms/WAI/wai.component";
 
- /**
-  * Modules
-  */
-import {MatSliderModule} from '@angular/material/slider';
+/**
+ * Modules
+ */
+import { MatSliderModule } from '@angular/material/slider';
 import { HeaderComponent } from "./components/Header/header.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { AppRoutingModule } from "./app-routing-module";
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatCardModule} from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -46,7 +52,12 @@ import {MatCardModule} from '@angular/material/card';
     RegistoPacienteComponent,
     RegistoPsicologoComponent,
     orsComponent,
-    srsComponent
+    srsComponent,
+    ETComponent,
+    OQ10Component,
+    QAPComponent,
+    STComponent,
+    WAIComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +72,8 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent],

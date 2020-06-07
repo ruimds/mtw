@@ -8,8 +8,14 @@ import { RegistoPsicologoComponent } from "./components/auth/Registo-Psicologo/r
 import { HomeComponent } from "./components/Home/home.component";
 import { HomePacienteComponent } from "./components/Home-Paciente/home-paciente.component";
 import { HomePsicologoComponent } from "./components/Home-Psicologo/home-psicologo.component";
-import { orsComponent } from "./components/ORS/ors.component";
-import { srsComponent } from "./components/srs/srs-component";
+import { orsComponent } from "./components/Forms/ORS/ors.component";
+import { srsComponent } from "./components/Forms/SRS/srs-component";
+import { ETComponent } from "./components/Forms/ET/et.component";
+import { OQ10Component } from "./components/Forms/OQ-10/oq10.component";
+import { QAPComponent } from "./components/Forms/QAP/qap.component";
+import { STComponent } from "./components/Forms/ST/st.component";
+import { WAIComponent } from "./components/Forms/WAI/wai.component";
+
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "paciente", component: HomePacienteComponent },
@@ -18,10 +24,15 @@ const routes: Routes = [
   { path: "loginPsicologo", component: LoginPsicologoComponent },
   { path: "registoPaciente", component: LoginPsicologoComponent },
   { path: "registoPsicologo", component: LoginPsicologoComponent },
-  { path: "ors", component: orsComponent},
   { path: "registoPaciente", component: RegistoPacienteComponent },
   { path: "registoPsicologo", component: RegistoPsicologoComponent },
-  { path: "srs", component: srsComponent},
+  { path: "ors", component: orsComponent },
+  { path: "srs", component: srsComponent },
+  { path: "et", component: ETComponent },
+  { path: "oq10", component: OQ10Component },
+  { path: "qap", component: QAPComponent },
+  { path: "st", component: STComponent },
+  { path: "wai", component: WAIComponent },
 ];
 
 @NgModule({

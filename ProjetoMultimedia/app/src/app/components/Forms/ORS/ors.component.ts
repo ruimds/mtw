@@ -5,4 +5,6 @@ import { Component, OnInit, NgModule, Input } from "@angular/core";
   templateUrl: "./ors.component.html",
   styleUrls: ["./ors.component.css"],
 })
-export class orsComponent {}
+export class orsComponent {
+  logged = "true";
+}
