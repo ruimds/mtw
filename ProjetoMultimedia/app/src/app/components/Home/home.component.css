@@ -17,19 +17,21 @@
 .button-container button {
   height: 100%;
 }
-.anchor-button-porque-o-rui-e-um-burro-de-merda {
+.anchor-button {
   text-decoration: none;
 }
-.anchor-button-porque-o-rui-e-um-burro-de-merda div {
+.anchor-button div {
   background-color: rgb(0, 183, 255);
   text-align: center;
   color: white;
   border-radius: 5px;
   height: 50px;
   font-size: 25px;
-  padding-top: 20px;
+  font-weight: bold;
+  padding-top: 5px;
+  margin-top: 20px;
 }
-.anchor-button-porque-o-rui-e-um-burro-de-merda div:hover {
+.anchor-button div:hover {
   background-color: transparent;
   color: rgb(0, 183, 255);
   border-style: solid;
