@@ -15,17 +15,20 @@ export class orsComponent {
 
   constructor(private http: HttpClient, private router: Router, private formService: FormService) { }
 
-  formData: any[] = [
-    {
-      p1   : 0,
-      p2   : 0,
-      p3   : 0,
-      p4   : 0,
-    }
-  ];
+  formData: any[] = [];
 
-  sendData()
-  {
-    this.formService.storeData(this.formData, "ORS");
+  getobject(array) {
+    var object_name = {
+      p1: array[0],
+      p2: array[1],
+      p3: array[2],
+      p4: array[3],
+    };
+    return object_name;
+  }
+
+  sendData() {
+    var formdata2 = this.getobject(this.formData)
+    this.formService.storeData(formdata2, "ORS");
   }
 }

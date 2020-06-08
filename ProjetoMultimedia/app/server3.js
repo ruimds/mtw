@@ -150,26 +150,24 @@ app.listen(8080, () => {
       }
     });
 
-    app.post("/api/paciente/questionario/:collection", checkAuth, async function(req, res) {
+    app.post("/api/paciente/questionario/:collection", checkAuth, async function (req, res) {
       collection = database.collection(req.params.collection);
-       let user = jwt.decode(req.headers.authorization.split(" ")[1], 'secret');
+      let user = jwt.decode(req.headers.authorization.split(" ")[1], 'secret');
 
-          req.body.email = user.email;
-          req.body.date = new Date();
-          console.log(req.body);
-          console.log(user);
-          await collection.insertOne(req.body, (error, result) => {
-            if (error) {
-              res.status(500).json({
-                error: error,
-              });
-            } else {
-              res.status(201).json({
-                message: "Poll finished",
-                result: result,
-              });
-            }
-    });
+      req.body.email = user.email;
+      req.body.date = new Date();
+      await collection.insertOne(req.body, (error, result) => {
+        if (error) {
+          res.status(500).json({
+            error: error,
+          });
+        } else {
+          res.status(201).json({
+            message: "Poll finished",
+            result: result,
+          });
+        }
+      });
     });
   });
 });
@@ -259,8 +257,8 @@ function parseHeaderOptionsInsert(req) {
       return "Bad Body!";
     }
   } else if (req.params.collection == "pacientes") {
-      if (req.body.genero !== undefined && typeof req.body.genero == "string") {
-        options.genero = req.body.genero;
+    if (req.body.genero !== undefined && typeof req.body.genero == "string") {
+      options.genero = req.body.genero;
     } else {
       return "Bad Body!";
     }
