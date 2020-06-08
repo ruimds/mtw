@@ -6,6 +6,7 @@ import { Component, OnInit, NgModule, Input } from "@angular/core";
   styleUrls: ["./home-paciente.component.css"],
 })
 export class HomePacienteComponent {
-  logged = "true";
+  logged = true;
+  paciente = true;
   homeurl = "/paciente";
 }

@@ -163,6 +163,30 @@ app.listen(8080, () => {
         res.send(result);
     });
   });
+    app.get("/api/pacientes/questionarios/:email/:form", checkAuth, async function (req, res) {
+        collection = database.collection(req.params.form);
+        let email = req.params.email;
+        await collection.find({ email: email }).toArray((error, result) => {
+          if (error) {
+            return res.status(500).send(error);
+          } else if (result == null) {
+            return res.status(404).send('NOTFOUND');
+          }
+          res.send(result);
+      });
+    });
+    app.get("/api/pacientes/show/:email", checkAuth, async function (req, res) {
+      collection = database.collection('pacientes');
+      let email = req.params.email;
+      await collection.find({ email: email }).toArray((error, result) => {
+        if (error) {
+          return res.status(500).send(error);
+        } else if (result == null) {
+          return res.status(404).send('NOTFOUND');
+        }
+        res.send(result);
+    });
+  });
     app.post("/api/paciente/questionario/:collection", checkAuth, async function(req, res) {
       collection = database.collection(req.params.collection);
        let user = jwt.decode(req.headers.authorization.split(" ")[1], 'secret');

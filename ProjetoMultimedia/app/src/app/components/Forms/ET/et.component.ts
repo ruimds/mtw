@@ -10,7 +10,8 @@ import { Injectable } from "@angular/core";
     styleUrls: ["./et.component.css"],
 })
 export class ETComponent {
-    logged = "true";
+    logged = true;
+    paciente = true;
     constructor(private http: HttpClient, private router: Router, private formService: FormService) { }
 
     radio1 = "radio1";

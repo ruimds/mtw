@@ -11,7 +11,8 @@ import { FormService } from "../form-service";
 })
 
 export class orsComponent {
-  logged = "true";
+  logged = true;
+  paciente = true;
 
   constructor(private http: HttpClient, private router: Router, private formService: FormService) { }
 

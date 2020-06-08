@@ -12,7 +12,9 @@ export class HeaderComponent {
   @Input() public homeurl: string;
   @Input() public mostrarRegistar: boolean;
   @Input() public logged: boolean;
-
+  @Input() public paciente: boolean;
+  @Input() public psicologo: boolean;
+  
   setUrl(url) {
     this.url = url;
   }

@@ -19,6 +19,7 @@ import {
   AuthGuardService as AuthGuard 
 } from './components/auth/auth-guard.service';
 
+import { PaginaPacienteComponent } from "./components/pagina-paciente/pagina-paciente.component"
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "paciente", component: HomePacienteComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: "ors", component: orsComponent, canActivate: [AuthGuard]},
   { path: "registoPaciente", component: RegistoPacienteComponent },
   { path: "registoPsicologo", component: RegistoPsicologoComponent },
+  { path: "paginapaciente", component: PaginaPacienteComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
