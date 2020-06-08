@@ -78,7 +78,8 @@ import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     RouterModule,
     HttpClientModule,
     MatRadioModule,
-    JwtModule
+    JwtModule,
+    MatTableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

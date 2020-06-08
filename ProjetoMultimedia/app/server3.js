@@ -149,25 +149,39 @@ app.listen(8080, () => {
         }
       }
     });
+    app.get("/api/pacientes/lista", checkAuth, async function (req, res) {
+      collection = database.collection('pacientes');
 
-    app.post("/api/paciente/questionario/:collection", checkAuth, async function (req, res) {
-      collection = database.collection(req.params.collection);
       let user = jwt.decode(req.headers.authorization.split(" ")[1], 'secret');
 
-      req.body.email = user.email;
-      req.body.date = new Date();
-      await collection.insertOne(req.body, (error, result) => {
+      await collection.find({ emailpsicologo: user.email }).toArray((error, result) => {
         if (error) {
-          res.status(500).json({
-            error: error,
-          });
-        } else {
-          res.status(201).json({
-            message: "Poll finished",
-            result: result,
-          });
+          return res.status(500).send(error);
+        } else if (result == null) {
+          return res.status(404).send('NOTFOUND');
         }
-      });
+        res.send(result);
+    });
+  });
+    app.post("/api/paciente/questionario/:collection", checkAuth, async function(req, res) {
+      collection = database.collection(req.params.collection);
+       let user = jwt.decode(req.headers.authorization.split(" ")[1], 'secret');
+
+          req.body.email = user.email;
+          req.body.date = new Date();
+
+          await collection.insertOne(req.body, (error, result) => {
+            if (error) {
+              res.status(500).json({
+                error: error,
+              });
+            } else {
+              res.status(201).json({
+                message: "Poll finished",
+                result: result,
+              });
+            }
+        });
     });
   });
 });

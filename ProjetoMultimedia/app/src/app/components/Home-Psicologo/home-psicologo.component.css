@@ -7,3 +7,14 @@
   font-size: 35px;
   color: black;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 50px;
+}
