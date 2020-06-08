@@ -5,25 +5,25 @@
     <a routerLink="/{{ url }}" *ngIf="mostrarRegistar && !logged" mat-button class="nav-item">
       Registo
     </a>
-    <a routerLink="/ors" *ngIf="logged" mat-button style class="nav-item">
+    <a routerLink="/ors" *ngIf="logged && paciente" mat-button style class="nav-item">
       ORS
     </a>
-    <a routerLink="/srs" *ngIf="logged" mat-button style class="nav-item">
+    <a routerLink="/srs" *ngIf="logged && paciente" mat-button style class="nav-item">
       SRS
     </a>
-    <a routerLink="/et" *ngIf="logged" mat-button style class="nav-item">
+    <a routerLink="/et" *ngIf="logged && paciente" mat-button style class="nav-item">
       ET
     </a>
-    <a routerLink="/oq10" *ngIf="logged" mat-button style class="nav-item">
+    <a routerLink="/oq10" *ngIf="logged && paciente" mat-button style class="nav-item">
       OQ-10
     </a>
-    <a routerLink="/qap" *ngIf="logged" mat-button style class="nav-item">
+    <a routerLink="/qap" *ngIf="logged && paciente" mat-button style class="nav-item">
       QAP
     </a>
-    <a routerLink="/st" *ngIf="logged" mat-button style class="nav-item">
+    <a routerLink="/st" *ngIf="logged && paciente" mat-button style class="nav-item">
       ST
     </a>
-    <a routerLink="/wai" *ngIf="logged" mat-button style class="nav-item">
+    <a routerLink="/wai" *ngIf="logged && paciente" mat-button style class="nav-item">
       WAI
     </a>
     <a routerLink="#" (click)="logout()" *ngIf="logged" mat-button style class="nav-item">

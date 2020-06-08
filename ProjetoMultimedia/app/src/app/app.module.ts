@@ -25,6 +25,7 @@ import { OQ10Component } from "./components/Forms/OQ-10/oq10.component";
 import { QAPComponent } from "./components/Forms/QAP/qap.component";
 import { STComponent } from "./components/Forms/ST/st.component";
 import { WAIComponent } from "./components/Forms/WAI/wai.component";
+import { PaginaPacienteComponent } from "./components/pagina-paciente/pagina-paciente.component"
 
 /**
  * Modules
@@ -39,6 +40,7 @@ import { AppRoutingModule } from "./app-routing-module";
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { AuthInterceptor } from "./components/auth/auth-interceptor";
 import {AuthGuardService} from './components/auth/auth-guard.service';
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -62,6 +64,7 @@ import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     QAPComponent,
     STComponent,
     WAIComponent,
+    PaginaPacienteComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,8 @@ import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     HttpClientModule,
     MatRadioModule,
     JwtModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonToggleModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

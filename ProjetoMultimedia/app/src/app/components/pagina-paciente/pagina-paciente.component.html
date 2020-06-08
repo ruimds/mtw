@@ -1,0 +1,94 @@
+<div class="container">
+    <h1>{{dataSource[0].nome}}</h1>
+    <h2>Dados Pessoais</h2>
+    <div class="personal-data">
+        <div class="personal">
+            <mat-icon>person</mat-icon>
+            <mat-card>{{dataSource[0].nome}}</mat-card>
+        </div>
+        <div class="personal">
+            <mat-icon>cake</mat-icon>
+            <mat-card>{{dataSource[0].idade}}</mat-card>
+        </div>
+        <div class="personal">
+            <mat-icon>wc</mat-icon>
+            <mat-card>{{dataSource[0].genero}}</mat-card>
+        </div>
+        <div class="personal">
+            <mat-icon>email</mat-icon>
+            <mat-card>{{dataSource[0].email}}</mat-card>
+        </div>
+    </div>
+    <h2>Questionários</h2>
+    <div class="questionarios">
+        <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle value="ST" aria-label="Text align left" (click)="getRespostas(group.value)">
+              ST
+            </mat-button-toggle>
+            <mat-button-toggle value="QAP" aria-label="Text align center"(click)="getRespostas(group.value)">
+              QAP
+            </mat-button-toggle>
+            <mat-button-toggle value="SRS" aria-label="Text align right"(click)="getRespostas(group.value)">
+              SRS
+            </mat-button-toggle>
+            <mat-button-toggle value="ORS" aria-label="Text align justify"(click)="getRespostas(group.value)">
+              ORS
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <table mat-table [dataSource]="respostas" class="mat-elevation-z8">
+    
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+            <ng-container matColumnDef="p1">
+                <th mat-header-cell *matHeaderCellDef> Pergunta 1 </th>
+                <td mat-cell *matCellDef="let element"> {{element.p1}} </td>
+            </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="p2">
+              <th mat-header-cell *matHeaderCellDef> Pergunta 2 </th>
+              <td mat-cell *matCellDef="let element"> {{element.p2}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="p3">
+              <th mat-header-cell *matHeaderCellDef> Pergunta 3 </th>
+              <td mat-cell *matCellDef="let element"> {{element.p3}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="p4">
+              <th mat-header-cell *matHeaderCellDef> Pergunta 4 </th>
+              <td mat-cell *matCellDef="let element"> {{element.p4}} </td>
+            </ng-container>        
+
+            <ng-container matColumnDef="p5">
+                <th mat-header-cell *matHeaderCellDef> Pergunta 5 </th>
+                <td mat-cell *matCellDef="let element"> {{element.p5}} </td>
+              </ng-container>   
+
+            <ng-container matColumnDef="p6">
+              <th mat-header-cell *matHeaderCellDef> Pergunta 6 </th>
+              <td mat-cell *matCellDef="let element"> {{element.p6}} </td>
+            </ng-container>   
+            <ng-container matColumnDef="p7">
+                <th mat-header-cell *matHeaderCellDef> Pergunta 7 </th>
+                <td mat-cell *matCellDef="let element"> {{element.p7}} </td>
+            </ng-container>   
+            <ng-container matColumnDef="p8">
+                <th mat-header-cell *matHeaderCellDef> Pergunta 8 </th>
+                <td mat-cell *matCellDef="let element"> {{element.p8}} </td>
+            </ng-container>   
+            <ng-container matColumnDef="p9">
+                <th mat-header-cell *matHeaderCellDef> Pergunta 9 </th>
+                <td mat-cell *matCellDef="let element"> {{element.p9}} </td>
+            </ng-container>   
+            <ng-container matColumnDef="p10">
+                <th mat-header-cell *matHeaderCellDef> Pergunta 10 </th>
+                <td mat-cell *matCellDef="let element"> {{element.p10}} </td>
+            </ng-container>     
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </div>
+</div>
