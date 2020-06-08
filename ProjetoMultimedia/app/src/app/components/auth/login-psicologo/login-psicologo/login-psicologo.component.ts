@@ -21,4 +21,10 @@ export class LoginPsicologoComponent {
     }
     this.authService.loginPsicologo(form.value.email, form.value.password);
   }
+
+  ngOnInit() {
+    if (sessionStorage.getItem("token") !== null) {
+      sessionStorage.removeItem("token");
+    }
+  }
 }

@@ -21,4 +21,10 @@ export class LoginPacienteComponent {
     }
     this.authService.loginPaciente(form.value.email);
   }
+
+  ngOnInit() {
+    if (sessionStorage.getItem("token") !== null) {
+      sessionStorage.removeItem("token");
+    }
+  }
 }
