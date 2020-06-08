@@ -149,15 +149,27 @@ app.listen(8080, () => {
         }
       }
     });
+    app.get("/api/pacientes/lista", checkAuth, async function (req, res) {
+      collection = database.collection('pacientes');
 
+      let user = jwt.decode(req.headers.authorization.split(" ")[1], 'secret');
+
+      await collection.find({ emailpsicologo: user.email }).toArray((error, result) => {
+        if (error) {
+          return res.status(500).send(error);
+        } else if (result == null) {
+          return res.status(404).send('NOTFOUND');
+        }
+        res.send(result);
+    });
+  });
     app.post("/api/paciente/questionario/:collection", checkAuth, async function(req, res) {
       collection = database.collection(req.params.collection);
        let user = jwt.decode(req.headers.authorization.split(" ")[1], 'secret');
 
           req.body.email = user.email;
           req.body.date = new Date();
-          console.log(req.body);
-          console.log(user);
+
           await collection.insertOne(req.body, (error, result) => {
             if (error) {
               res.status(500).json({
@@ -169,7 +181,7 @@ app.listen(8080, () => {
                 result: result,
               });
             }
-    });
+        });
     });
   });
 });
