@@ -19,24 +19,19 @@
                 <td class="table" style="text-align: left;">De que forma será difícil para si participar na
                     psicoterapia?</td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="1">
-                    </mat-radio-button>
+                    <input name="radio1" type="radio" class="radio-button" [value]="1" [(ngModel)]="formData[0]">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="2">
-                    </mat-radio-button>
+                    <input name="radio1" type="radio" class="radio-button" [value]="2" [(ngModel)]="formData[0]">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="3">
-                    </mat-radio-button>
+                    <input name="radio1" type="radio" class="radio-button" [value]="3" [(ngModel)]="formData[0]">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="4">
-                    </mat-radio-button>
+                    <input name="radio1" type="radio" class="radio-button" [value]="4" [(ngModel)]="formData[0]">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="5">
-                    </mat-radio-button>
+                    <input name="radio1" type="radio" class="radio-button" [value]="5" [(ngModel)]="formData[0]">
                 </td>
             </tr>
             <tr class="table">
@@ -45,28 +40,23 @@
                     os seus
                     problemas?</td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="1">
-                    </mat-radio-button>
+                    <input name="radio2" type="radio" class="radio-button" [value]="1" [(ngModel)]="formData[1]">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="2">
-                    </mat-radio-button>
+                    <input name="radio2" type="radio" class="radio-button" [value]="2" [(ngModel)]="formData[1]">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="3">
-                    </mat-radio-button>
+                    <input name="radio2" type="radio" class="radio-button" [value]="3" [(ngModel)]="formData[1]">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="4">
-                    </mat-radio-button>
+                    <input name="radio2" type="radio" class="radio-button" [value]="4" [(ngModel)]="formData[1]">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="5">
-                    </mat-radio-button>
+                    <input name="radio2" type="radio" class="radio-button" [value]="5" [(ngModel)]="formData[1]">
                 </td>
             </tr>
         </tbody>
     </table>
-    <button>Submeter</button>
+    <button (click)="sendData()">Submeter</button>
 
 </div>

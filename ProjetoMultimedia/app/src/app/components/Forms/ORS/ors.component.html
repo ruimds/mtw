@@ -32,13 +32,13 @@
 
 
     <h3>Individualmente (bem-estar pessoal)</h3>
-    <mat-slider class="slider" min="1" max="10" step="1" value="1" [(ngModel)]="formData.p1"></mat-slider>
-    <h3>Interpessoal (Família, relações chegadas)</h3> 
-    <mat-slider class="slider" min="1" max="10" step="1" value="1" [(ngModel)]="formData.p2"></mat-slider>
+    <mat-slider class="slider" min="1" max="10" step="1" value="1" [(ngModel)]="formData[0]"></mat-slider>
+    <h3>Interpessoal (Família, relações chegadas)</h3>
+    <mat-slider class="slider" min="1" max="10" step="1" value="1" [(ngModel)]="formData[1]"></mat-slider>
     <h3>Socialmente (Trabalho, escola, amizades)</h3>
-    <mat-slider class="slider" min="1" max="10" step="1" value="1" [(ngModel)]="formData.p3"></mat-slider>
+    <mat-slider class="slider" min="1" max="10" step="1" value="1" [(ngModel)]="formData[2]"></mat-slider>
     <h3>Globalmente (Sensação geral de bem-estar</h3>
-    <mat-slider class="slider" min="1" max="10" step="1" value="1" [(ngModel)]="formData.p4"></mat-slider>
+    <mat-slider class="slider" min="1" max="10" step="1" value="1" [(ngModel)]="formData[3]"></mat-slider>
 
     <button (click)="sendData()">Submeter</button>
 </div>

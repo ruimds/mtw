@@ -9,7 +9,7 @@ export class FormService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-   
+
   storeData(formData, type: string) {
     console.log(formData);
     this.http

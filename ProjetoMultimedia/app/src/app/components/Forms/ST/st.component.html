@@ -19,28 +19,23 @@
                 <td class="table" style="text-align: left;">Considera que o processos terapeutico está a ajudar-lo a
                     lidar eficazmente com as suas dificuldades</td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="1">
-                    </mat-radio-button>
+                    <input type="radio" name="radio" class="radio-button" [(ngModel)]="formData[0]" [value]="1">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="2">
-                    </mat-radio-button>
+                    <input type="radio" name="radio" class="radio-button" [(ngModel)]="formData[0]" [value]="2">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="3">
-                    </mat-radio-button>
+                    <input type="radio" name="radio" class="radio-button" [(ngModel)]="formData[0]" [value]="3">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="4">
-                    </mat-radio-button>
+                    <input type="radio" name="radio" class="radio-button" [(ngModel)]="formData[0]" [value]="4">
                 </td>
                 <td class="table">
-                    <mat-radio-button class="radio-button" [value]="5">
-                    </mat-radio-button>
+                    <input type="radio" name="radio" class="radio-button" [(ngModel)]="formData[0]" [value]="5">
                 </td>
             </tr>
         </tbody>
     </table>
-    <button>Submeter</button>
+    <button (click)="sendData()">Submeter</button>
 
 </div>
