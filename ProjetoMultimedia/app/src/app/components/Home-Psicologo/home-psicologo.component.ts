@@ -24,13 +24,13 @@ export class HomePsicologoComponent {
     this.clients();
   }
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
   logged = "true";
   homeurl = "/psicologo";
-  displayedColumns: string[] = ['genero', 'emailpsicologo', 'idade', 'email', 'nome', 'actions'];
+  displayedColumns: string[] = ['genero', 'emailpsicologo', 'idade', 'email', 'nome'];
   dataSource = ELEMENT_DATA;
 
-  paciente (element:any) {
+  paciente(element: any) {
     sessionStorage.setItem('paciente', element.email);
     this.router.navigate(["/paginapaciente"]);
   }
