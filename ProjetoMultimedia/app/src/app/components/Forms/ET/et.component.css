@@ -6,6 +6,7 @@
 
 h1 {
     color: orangered;
+    margin: 50px;
 }
 
 button {
@@ -13,11 +14,23 @@ button {
     width: 85%; 
 }
 
-.table{
+.container button {
+    margin-top: 50px;
     width: 100%;
-    border: 1px solid black;
-    padding: 20px;
-    border-collapse: collapse;
-    text-align:center;
-    vertical-align:bottom;
+    height: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    border-width: 1px;
+}
+
+thead tr {
+    text-align: center;
+}
+
+tbody tr {
+    border-bottom: solid;
+    border-width: 1px;
+    text-align: center;
+    height: 50px;
 }

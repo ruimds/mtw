@@ -15,7 +15,7 @@ export interface paciente {
 
 export interface questionario {
   email: string;
-  perguntas: [];
+  perguntas: any[];
 }
 let DATA: questionario[] = [];
 let ELEMENT_DATA: paciente[] = [];
@@ -26,28 +26,30 @@ let ELEMENT_DATA: paciente[] = [];
   styleUrls: ["./pagina-paciente.component.css"],
 })
 export class PaginaPacienteComponent {
+  logged = "true";
+  homeurl = "/psicologo";
 
   ngOnInit() {
     this.paciente();
   }
-  
+
   displayedColumns: string[] = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10'];
   dataSource = ELEMENT_DATA;
   respostas = DATA;
   emailPaciente = sessionStorage.getItem('paciente');
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   paciente() {
     this.http
-      .get("http://127.0.0.1:8080/api/pacientes/show/"+this.emailPaciente)
+      .get("http://127.0.0.1:8080/api/pacientes/show/" + this.emailPaciente)
       .subscribe((response) => {
         this.dataSource = response;
       });
   }
 
-  getRespostas(value:any) {
+  getRespostas(value: any) {
     this.http
-      .get("http://127.0.0.1:8080/api/pacientes/questionarios/"+this.emailPaciente+"/"+value)
+      .get("http://127.0.0.1:8080/api/pacientes/questionarios/" + this.emailPaciente + "/" + value)
       .subscribe((response) => {
         this.respostas = response;
       });

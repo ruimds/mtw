@@ -4,6 +4,23 @@
     align-items: center;
 }
 
+.container h1 {
+    color: orangered;
+    margin: 50px;
+}
+
+.container h3 {
+    color:black;
+    font-size: 15px;
+    padding-top: 20px;
+}
+
+.container p {
+    color:black;
+    font-size: 15px;
+    padding: 20px;
+}
+
 .description {
     width: 800px;
 }
@@ -23,4 +40,15 @@
 
 button {
     width: 800px;
+}
+
+.container button {
+    margin-top: 50px;
+    width: 75%;
+    height: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    border-width: 1px;
+    margin: 50px;
 }
